@@ -45,7 +45,7 @@ def draw_component(data_array: list) -> dcc.Graph:
                                           "color": "#D30202"}}
                          ),
             ]
-    layout = go.Layout(xaxis={"title": "aLogP"},
+    layout = go.Layout(xaxis={"title": "ALogP"},
                        yaxis={"title": "Frequency"},
                        margin={"t": 5})
     fig = go.Figure(data=plot,
