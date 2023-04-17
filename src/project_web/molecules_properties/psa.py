@@ -25,7 +25,7 @@ def get_data(raw_data: list) -> dict:
                 - min_value (float): minimum value
                 - max_value (float): maximum value
     """
-    return {}
+    return {component: raw_data.pref_name}
     
 def draw_component(data_array: list) -> dcc.Graph:
     """[OPTIONAL]
