@@ -25,7 +25,16 @@ def get_data(raw_data: list) -> dict:
                 - min_value (float): minimum value
                 - max_value (float): maximum value
     """
-    return {}
+
+    alogp = [int(d["molecule_properties"]["alogp"]) for d in raw_data if d["molecule_properties"]["alogp"]]
+    return dict(component="Number of heavy atoms",
+                data=alogp,
+                mean=np.mean(alogp),
+                std=np.std(alogp),
+                max_value=np.max(alogp),
+                min_value=np.min(alogp)
+                )
+
     
 def draw_component(data_array: list) -> dcc.Graph:
     """[OPTIONAL]
@@ -45,7 +54,7 @@ def draw_component(data_array: list) -> dcc.Graph:
                                           "color": "#D30202"}}
                          ),
             ]
-    layout = go.Layout(xaxis={"title": "aLogP"},
+    layout = go.Layout(xaxis={"title": "ALogP"},
                        yaxis={"title": "Frequency"},
                        margin={"t": 5})
     fig = go.Figure(data=plot,
