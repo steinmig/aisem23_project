@@ -47,9 +47,9 @@ def draw_component(data_array: list) -> dcc.Graph:
         dcc.Graph: dash graph object that will be shown on the dashboard
     """
     plot = [go.Histogram(x=data_array,
-                         marker={"color": "#00b0f0",
+                         marker={"color": "#6bc40c",
                                  "line": {"width": 3,
-                                          "color": "#6bc40c"}},
+                                          "color": "#4b8a08"}},
                          xbins=dict(start=min(data_array)-1,
                                     end=max(data_array)+1,
                                     size=1),
