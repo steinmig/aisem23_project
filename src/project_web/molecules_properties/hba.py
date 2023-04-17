@@ -27,13 +27,14 @@ def get_data(raw_data: list) -> dict:
 
     """
     hbacceptor_values = [int(d["molecule_properties"]["hba"]) for d in raw_data if d["molecule_properties"]["hba"]]
-    return dict(component = "Number of Hydrogen Bond Acceptors",
-                data = hbacceptor_values,
-                mean = np.mean(hbacceptor_values),
-                std = np.std(hbacceptor_values),
-                min_value= np.min(hbacceptor_values),
-                max_value = np.max(hbacceptor_values))
-    
+    return dict(component="Number of Hydrogen Bond Acceptors",
+                data=hbacceptor_values,
+                mean=np.mean(hbacceptor_values),
+                std=np.std(hbacceptor_values),
+                min_value=np.min(hbacceptor_values),
+                max_value=np.max(hbacceptor_values))
+
+
 def draw_component(data_array: list) -> dcc.Graph:
     """[OPTIONAL]
        Method drawing a histogram for number of H-bond acceptors.
@@ -50,8 +51,8 @@ def draw_component(data_array: list) -> dcc.Graph:
                          marker={"color": "#6bc40c",
                                  "line": {"width": 3,
                                           "color": "#4b8a08"}},
-                         xbins=dict(start=min(data_array)-1,
-                                    end=max(data_array)+1,
+                         xbins=dict(start=min(data_array) - 1,
+                                    end=max(data_array) + 1,
                                     size=1),
                          ),
             ]
@@ -61,6 +62,5 @@ def draw_component(data_array: list) -> dcc.Graph:
                        margin={"t": 5})
     fig = go.Figure(data=plot,
                     layout=layout)
-    
+
     return dcc.Graph(figure=fig)
-    

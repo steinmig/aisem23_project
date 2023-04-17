@@ -26,15 +26,16 @@ def get_data(raw_data: list) -> dict:
                 - max_value (float): maximum value
     """
     psa = [comp_obj["molecule_properties"]["psa"]
-            for comp_obj in raw_data
-            if comp_obj["molecule_properties"]["psa"]]
+           for comp_obj in raw_data
+           if comp_obj["molecule_properties"]["psa"]]
     return {"component": "Polar surface area",
             "data": psa,
             "mean": np.mean(psa),
             "std": np.std(psa),
             "min_value": np.min(psa),
             "max_value": np.max(psa)}
-    
+
+
 def draw_component(data_array: list) -> dcc.Graph:
     """[OPTIONAL]
        Method drawing a histogram for polar surface area.
@@ -58,6 +59,5 @@ def draw_component(data_array: list) -> dcc.Graph:
                        margin={"t": 5})
     fig = go.Figure(data=plot,
                     layout=layout)
-    
+
     return dcc.Graph(figure=fig)
-    
