@@ -25,7 +25,15 @@ def get_data(raw_data: list) -> dict:
                 - min_value (float): minimum value
                 - max_value (float): maximum value
     """
-    return {}
+    psa = [comp_obj["molecule_properties"]["psa"]
+            for comp_obj in raw_data
+            if comp_obj["molecule_properties"]["psa"]]
+    return {"component": "Polar surface area",
+            "data": psa,
+            "mean": np.mean(psa),
+            "std": np.std(psa),
+            "min_value": np.min(psa),
+            "max_value": np.max(psa)}
     
 def draw_component(data_array: list) -> dcc.Graph:
     """[OPTIONAL]
