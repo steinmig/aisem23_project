@@ -19,7 +19,7 @@ def get_data(raw_data: list) -> dict:
     Returns:
         dict: the following attributes have to be included in the output
                 - data: array of integers, actual values
-                - mean: average value of the dataa
+                - mean: average value of the data
                 - std: standard deviation of the data
                 - min_value (float): minimum value
                 - max_value (float): maximum value
