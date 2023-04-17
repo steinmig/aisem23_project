@@ -25,7 +25,14 @@ def get_data(raw_data: list) -> dict:
                 - min_value (float): minimum value
                 - max_value (float): maximum value
     """
-    return {}
+    similarities = [float(d["similarity"]) for d in raw_data if d["similarity"]]
+    return {"component": "Number of aromatic rings",
+            "data": similarities,
+            "mean": np.mean(similarities),
+            "std": np.std(similarities),
+            "min_value": np.min(similarities),
+            "max_value": np.max(similarities),
+            }
     
 def draw_component(data_array: list) -> dcc.Graph:
     """[OPTIONAL]
