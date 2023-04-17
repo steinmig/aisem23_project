@@ -19,13 +19,19 @@ def get_data(raw_data: list) -> dict:
     Returns:
         dict: the following attributes have to be included in the output
                 - data: array of integers, actual values
-                - mean: average value of the data
+                - mean: average value of the dataa
                 - std: standard deviation of the data
                 - min_value (float): minimum value
                 - max_value (float): maximum value
     """
-    
-    return {}
+    hb_donor_values = [int(d["molecule_properties"]["hbd"]) for d in raw_data if d["molecule_properties"]["hbd"]]
+    return dict(component = "Hydrogen Bond Donors",
+                data = hb_donor_values,
+                mean = np.mean(hb_donor_values),
+                std = np.std(hb_donor_values),
+                min_value = np.min(hb_donor_values),
+                max_value = np.max(hb_donor_values)
+    )
     
 def draw_component(data_array: list) -> dcc.Graph:
     """[OPTIONAL]
