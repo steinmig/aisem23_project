@@ -6,7 +6,8 @@ import plotly.graph_objs as go
 
 def get_data(raw_data: list) -> dict:
     """Implement the function that extracts molecule weight per molecule from raw ChEMBL data
-       Computes mean, median and standard deviation 
+       Computes mean, median and standard deviation
+       I dont know what i'm doing 
        
     Hints:
        - Molecule weight is located in attribute `full_mwt` of `molecule_properties`
