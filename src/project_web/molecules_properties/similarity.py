@@ -26,7 +26,7 @@ def get_data(raw_data: list) -> dict:
                 - max_value (float): maximum value
     """
     similarities = [float(d["similarity"]) for d in raw_data if d["similarity"]]
-    return {"component": "Number of aromatic rings",
+    return {"component": "Similarity",
             "data": similarities,
             "mean": np.mean(similarities),
             "std": np.std(similarities),
