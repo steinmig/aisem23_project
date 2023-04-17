@@ -12,7 +12,6 @@ def get_data(raw_data: list) -> dict:
        - Number of H-bond acceptors is located in attribute `hba` of `molecule_properties`
        - Make sure to exclude None values
        - When input is empty, the method should return an empty dictionary
-        here we go again
         
     Args:
         raw_data (list): ChEMBL output: see callbacks/data_schema.py for description
@@ -27,7 +26,13 @@ def get_data(raw_data: list) -> dict:
                 - max_value (float): maximum value
 
     """
-    return {}
+    hbacceptor_values = [int(d["molecule_properties"]["hba"]) for d in raw_data if d["molecule_properties"]["hba"]]
+    return dict(component = "Number of Hydrogen Bond Acceptors",
+                data = hbacceptor_values,
+                mean = np.mean(hbacceptor_values),
+                std = np.std(hbacceptor_values),
+                min_value= np.min(hbacceptor_values),
+                max_value = np.max(hbacceptor_values))
     
 def draw_component(data_array: list) -> dcc.Graph:
     """[OPTIONAL]
