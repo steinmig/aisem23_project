@@ -25,14 +25,15 @@ def get_data(raw_data: list) -> dict:
                 - max_value (float): maximum value
     """
     hb_donor_values = [int(d["molecule_properties"]["hbd"]) for d in raw_data if d["molecule_properties"]["hbd"]]
-    return dict(component = "Hydrogen Bond Donors",
-                data = hb_donor_values,
-                mean = np.mean(hb_donor_values),
-                std = np.std(hb_donor_values),
-                min_value = np.min(hb_donor_values),
-                max_value = np.max(hb_donor_values)
-    )
-    
+    return dict(component="Hydrogen Bond Donors",
+                data=hb_donor_values,
+                mean=np.mean(hb_donor_values),
+                std=np.std(hb_donor_values),
+                min_value=np.min(hb_donor_values),
+                max_value=np.max(hb_donor_values)
+                )
+
+
 def draw_component(data_array: list) -> dcc.Graph:
     """[OPTIONAL]
        Method drawing a histogram for number of H-bond donors.
@@ -49,8 +50,8 @@ def draw_component(data_array: list) -> dcc.Graph:
                          marker={"color": "#0070C0",
                                  "line": {"width": 3,
                                           "color": "#015895"}},
-                         xbins=dict(start=min(data_array)-1,
-                                    end=max(data_array)+1,
+                         xbins=dict(start=min(data_array) - 1,
+                                    end=max(data_array) + 1,
                                     size=1),
                          ),
             ]
@@ -60,6 +61,5 @@ def draw_component(data_array: list) -> dcc.Graph:
                        margin={"t": 5})
     fig = go.Figure(data=plot,
                     layout=layout)
-    
+
     return dcc.Graph(figure=fig)
-    
