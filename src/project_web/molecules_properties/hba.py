@@ -49,7 +49,7 @@ def draw_component(data_array: list) -> dcc.Graph:
     plot = [go.Histogram(x=data_array,
                          marker={"color": "#00b0f0",
                                  "line": {"width": 3,
-                                          "color": "#028DBF"}},
+                                          "color": "#6bc40c"}},
                          xbins=dict(start=min(data_array)-1,
                                     end=max(data_array)+1,
                                     size=1),
