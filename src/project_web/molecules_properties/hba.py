@@ -12,7 +12,8 @@ def get_data(raw_data: list) -> dict:
        - Number of H-bond acceptors is located in attribute `hba` of `molecule_properties`
        - Make sure to exclude None values
        - When input is empty, the method should return an empty dictionary
-
+        here we go again
+        
     Args:
         raw_data (list): ChEMBL output: see callbacks/data_schema.py for description
                          
